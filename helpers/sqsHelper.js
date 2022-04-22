@@ -10,6 +10,10 @@ class sqsClient {
     // send nos permite enviar peticiones a amazon sqs
     return this.sqsClient.send(new ListQueuesCommand());
   }
+
+  getQueueAttributes(params) {
+    return this.sqsClient.send(new GetQueueAttributesCommand(params));
+  }
 }
 
 module.exports = sqsHelper;
