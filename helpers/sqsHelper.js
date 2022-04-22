@@ -1,4 +1,9 @@
-const { SQSClient, ListQueuesCommand } = require('@aws-sdk/client-sqs');
+const {
+  SQSClient,
+  ListQueuesCommand,
+  SendMessageCommand,
+  ReceiveMessageCommand
+} = require('@aws-sdk/client-sqs');
 
 class sqsClient {
   constructor() {
@@ -13,6 +18,14 @@ class sqsClient {
 
   getQueueAttributes(params) {
     return this.sqsClient.send(new GetQueueAttributesCommand(params));
+  }
+
+  sendMessage(params) {
+    return this.sqsClient.send(new SendMessageCommand(params));
+  }
+
+  receiveMessage(params) {
+    return this.sqsClient.send(new ReceiveMessageCommand(params));
   }
 }
 

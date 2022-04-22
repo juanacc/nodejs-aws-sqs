@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "listQueues": "node listQueues.js",
-    "getAttributes": "node getAttributes.js"
+    "getAttributes": "node getAttributes.js",
+    "sendMessage": "node sendMessage.js",
+    "receiveMessage": "node receiveMessage.js"
   },
   "keywords": [],
   "author": "",
