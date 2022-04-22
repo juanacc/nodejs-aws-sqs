@@ -8,7 +8,8 @@
     "listQueues": "node listQueues.js",
     "getAttributes": "node getAttributes.js",
     "sendMessage": "node sendMessage.js",
-    "receiveMessage": "node receiveMessage.js"
+    "receiveMessage": "node receiveMessage.js",
+    "deleteMessage": "node deleteMessage.js"
   },
   "keywords": [],
   "author": "",
