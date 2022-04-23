@@ -1,21 +1,21 @@
 const {
   SQSClient,
   ListQueuesCommand,
+  GetQueueAttributesCommand,
   SendMessageCommand,
   ReceiveMessageCommand,
   DeleteMessageCommand
 } = require('@aws-sdk/client-sqs');
 
-class sqsClient {
-  constructor() {
-    //SQSClient recibe las credenciales de AWS, pero como estoy usando .env y dotenv, no necesito especificarlas ya que las toma directamente de ahi
-    this.sqsClient = new SQSClient();
+class sqsHelper {
+  constructor(credentials) {
+    this.sqsClient = new SQSClient({ key: credentials.accessKeyId, secret: credentials.secretAccessKey, region: credentials.region });
   }
 
   // los comandos que se ejecutan cuando invocamos a send, son clases, por lo que debemos pasarle los parametros que necesitamos
   listQueues() {
     // send nos permite enviar peticiones a amazon sqs
-    return this.sqsClient.send(new ListQueuesCommand());
+    return this.sqsClient.send(new ListQueuesCommand({}));
   }
 
   getQueueAttributes(params) {
